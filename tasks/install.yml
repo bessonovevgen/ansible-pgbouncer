@@ -1,5 +1,7 @@
 # file: roles/install-pgbouncer/tasks/install.yml
-
+---
 - name: "Stage 1: install pgbouncer"
-  yum: pkg=pgbouncer state=latest
+  yum:
+    name: pgbouncer
+    state: present
   when: ansible_pkg_mgr == 'yum'
