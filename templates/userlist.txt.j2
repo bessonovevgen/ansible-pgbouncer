@@ -1,0 +1,3 @@
+{% for user in postgresql_users %}
+"{{ user.name }}" "{{ user.pass }}"
+{% endfor %}

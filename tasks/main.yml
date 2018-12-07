@@ -1,5 +1,5 @@
 # file: roles/install-postgresql/tasks/main.yml -- root task which includes others
 
-- include: install.yml
-- include: configure.yml
-- include: post-install.yml
+- import_tasks: install.yml
+- import_tasks: configure.yml
+# - import_tasks: post-install.yml

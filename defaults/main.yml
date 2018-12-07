@@ -1,7 +1,7 @@
 # file: role/install-pgbouncer/defaults/main.yml
 
 # Basic settings
-pgbouncer_ini: /etc/pgbouncer/pgbouncer.ini
+pgbouncer_conf: /etc/pgbouncer
 pgbouncer_pool_mode: session
 enable_logrotate: yes
 
@@ -12,15 +12,16 @@ enable_logrotate: yes
 pgbouncer_pools: []
 
 # Internal user management
-pgbouncer_admin_user: postgres
-pgbouncer_admin_group: postgres
+pgbouncer_admin_user: pgbouncer
+pgbouncer_admin_group: pgbouncer
 pgbouncer_stats_users:
  - stats
 
 # PostgreSQL users which allowed connecting to the pools
-pgbouncer_allowed_users:
- - johndoe
- - vpupkin
+# postgresql_users:
+#   - name: postgres
+#     pass: postgres
+postgresql_users: []
 
 # pgbouncer.ini settings
 pgbouncer_logfile: /var/log/pgbouncer/pgbouncer.log
@@ -28,6 +29,6 @@ pgbouncer_pidfile: /var/run/pgbouncer/pgbouncer.pid
 pgbouncer_listen_addr: '127.0.0.1'
 pgbouncer_listen_port: 6432
 pgbouncer_auth_type: trust
-pgbouncer_auth_file: /etc/pgbouncer/userlist.txt
+pgbouncer_auth_file: "{{ pgbouncer_conf }}/userlist.txt"
 pgbouncer_max_client_conn: 100
 pgbouncer_default_pool_size: 20
