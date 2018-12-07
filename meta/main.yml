@@ -4,12 +4,13 @@ galaxy_info:
   author: "Alexey Lesovsky"
   description: A role to install PgBouncer on RedHat/CentOS/Scientific/Oracle Enterprise Linux.
   license: as-is
-  min_ansible_version: 1.4
+  min_ansible_version: 2.4
   version: 1.0
   platforms:
     - name: EL
       versions:
       - 6
+      - 7
   categories:
    - database
    - database:sql
